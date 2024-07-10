@@ -1,5 +1,5 @@
-CREATE DATABASE DigitalLibrary;
-USE DigitalLibrary;
+CREATE DATABASE acervoDigital;
+USE acervoDigital;
 
 CREATE TABLE Cliente(
 id_cliente TINYINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
