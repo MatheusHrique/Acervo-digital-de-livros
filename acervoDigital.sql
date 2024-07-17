@@ -3,42 +3,42 @@ USE acervoDigital;
 
 CREATE TABLE Autor(
  id_autor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- nomeCompleto VARCHAR(100),
- descricao VARCHAR(500),
+ nomeCompleto VARCHAR(100) NOT NULL,
+ descricao VARCHAR(500) NOT NULL,
  foto VARCHAR(300)
 ) ENGINE=INNODB;
 
 CREATE TABLE Livro(
 id_livro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 id_autor INT,
-titulo VARCHAR(100),
-subtitulo VARCHAR(100),
-isbn INT,
-assuntos VARCHAR(200),
-numEdicao INT,
-editora VARCHAR(100),
-localPublicacao VARCHAR(100),
-numPaginas SMALLINT,
+titulo VARCHAR(100) NOT NULL,
+subtitulo VARCHAR(100) NOT NULL,
+isbn INT NOT NULL,
+assuntos VARCHAR(200) NOT NULL,
+numEdicao INT NOT NULL,
+editora VARCHAR(100) NOT NULL,
+localPublicacao VARCHAR(100) NOT NULL,
+numPaginas SMALLINT NOT NULL,
 FOREIGN KEY (id_autor) REFERENCES Autor(id_autor)
 ) ENGINE=INNODB;
 
 CREATE TABLE Usuario(
 id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(100), 
-senha VARCHAR(50),
-email VARCHAR(100),
-endereco VARCHAR(100),
-telefone VARCHAR(100),
-dataNascimento DATE,
-CPF VARCHAR(14) UNIQUE
+nome VARCHAR(100) NOT NULL, 
+senha VARCHAR(50) NOT NULL,
+email VARCHAR(100) NOT NULL,
+endereco VARCHAR(100) NOT NULL,
+telefone VARCHAR(100) NOT NULL,
+dataNascimento DATE NOT NULL,
+CPF VARCHAR(14) UNIQUE NOT NULL
 ) ENGINE=INNODB;
 
 CREATE TABLE Registros(
  id_autor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
  id_usuario INT,
  id_livro INT,
- dataRetirada DATE,
- dataDevolucao DATE,
+ dataRetirada DATE NOT NULL,
+ dataDevolucao DATE NOT NULL,
  FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
  FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
 ) ENGINE=INNODB;
